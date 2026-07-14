@@ -1,0 +1,12 @@
+{
+  "gateway_id": "pi-edge-demo-01",
+  "facility_id": "F17",
+  "server_url": "http://127.0.0.1:8000",
+  "poll_interval_seconds": 3,
+  "batch_size": 4,
+  "buffer_path": "runtime/edge_buffer.jsonl",
+  "status_path": "runtime/edge_status.json",
+  "source_csv": "sample_data/edge_demo_readings.csv",
+  "api_key": null,
+  "accelerated_demo": true
+}

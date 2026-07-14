@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UZ Institutional EMS</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <div><div class="eyebrow">AI4I Track 3 Development Prototype</div><h1>Institutional Energy Operations Console</h1></div>
+    <div class="status-cluster"><span id="api-status" class="status-dot">Checking API</span><span class="mode-pill">Advisory mode</span></div>
+  </header>
+  <nav class="tabs" aria-label="Dashboard sections">
+    <button class="tab active" data-tab="overview">Overview</button><button class="tab" data-tab="operations">Estates and Facilities</button><button class="tab" data-tab="edge">Edge gateway</button><button class="tab" data-tab="live">Live forecast</button><button class="tab" data-tab="cost">Cost impact</button><button class="tab" data-tab="evidence">Data evidence</button><button class="tab" data-tab="ai">AI vs rule</button><button class="tab" data-tab="architecture">Architecture</button>
+  </nav>
+  <main>
+    <section id="overview" class="panel active">
+      <div id="kpi-grid" class="kpi-grid"></div>
+      <div class="grid two">
+        <article class="card"><div class="card-heading"><h2>Forecast benchmark</h2><span>Untouched April test</span></div><div id="forecast-chart" class="chart"></div></article>
+        <article class="card"><div class="card-heading"><h2>Rolling validation</h2><span>Chronological folds</span></div><div id="rolling-chart" class="chart"></div></article>
+      </div>
+      <article class="card statement"><h2>Current product boundary</h2><p>The software MVP forecasts next-half-hour demand, classifies facility peak risk, and produces operator-confirmed actions. The wider project includes meter interfaces, edge acquisition, optional submetering, and future supervised control of approved non-critical loads. No autonomous switching or realised financial savings are claimed in the current build. Public cost figures are planning estimates only.</p></article>
+    </section>
+    <section id="operations" class="panel">
+      <div class="section-title"><div><h2>Estates and Facilities alert queue</h2><p>Review, confirm, defer, dismiss, or mute an advisory action. Every decision is logged.</p></div><button id="refresh-alerts" class="secondary">Refresh queue</button></div>
+      <div id="alert-list" class="alert-list"></div>
+      <article class="card"><div class="card-heading"><h2>Operator action log</h2><span>Latest decisions</span></div><div id="decision-log" class="decision-log"></div></article>
+    </section>
+    <section id="edge" class="panel">
+      <div class="section-title"><div><h2>Edge gateway demonstration</h2><p>Public-safe sample meter ingestion, durable local buffering and recovery evidence.</p></div><button id="refresh-edge" class="secondary">Refresh status</button></div>
+      <div id="edge-kpis" class="kpi-grid edge-kpis"></div>
+      <div class="grid two">
+        <article class="card"><div class="card-heading"><h2>Gateway status</h2><span>Simulator or future Raspberry Pi</span></div><div id="edge-status-detail" class="status-detail"></div></article>
+        <article class="card"><div class="card-heading"><h2>Latest received readings</h2><span>Runtime store, not the private UZ dataset</span></div><div id="edge-readings" class="edge-readings"></div></article>
+      </div>
+      <article class="card statement"><h2>Safety boundary</h2><p>This tab demonstrates monitoring, validation, buffering, retry and duplicate protection only. It does not connect to mains wiring or perform automatic load switching.</p></article>
+    </section>
+    <section id="live" class="panel">
+      <div class="section-title"><div><h2>Live edge-to-AI forecast</h2><p>Incoming completed half-hour values are converted into model features, forecast one interval ahead and scored against the facility limit.</p></div><button id="refresh-live" class="secondary">Refresh forecast</button></div>
+      <div id="live-kpis" class="kpi-grid"></div>
+      <div class="grid two">
+        <article class="card"><div class="card-heading"><h2>Current versus forecast demand</h2><span>Latest operational inference</span></div><div id="live-forecast-chart" class="chart"></div></article>
+        <article class="card"><div class="card-heading"><h2>Model status</h2><span>Private model preferred, public demo fallback</span></div><div id="live-model-status" class="status-detail"></div></article>
+      </div>
+      <article class="card"><div class="card-heading"><h2>Recent forecasts</h2><span>Generated from received edge values</span></div><div id="live-forecast-table" class="cost-table-wrap"></div></article>
+      <article class="card statement"><h2>Operating boundary</h2><p>The live path is operational for forecasting and recommendations. It remains advisory, uses completed interval values, and does not switch electrical loads.</p></article>
+    </section>
+    <section id="cost" class="panel">
+      <div class="section-title"><div><h2>Public-source cost-impact estimate</h2><p>Planning evidence based on the study's aggregate figures and the public ZERA average tariff. This is not the confidential UZ bill.</p></div><button id="refresh-cost" class="secondary">Refresh estimate</button></div>
+      <div id="cost-kpis" class="kpi-grid"></div>
+      <div class="grid two">
+        <article class="card"><div class="card-heading"><h2>Indicative monthly bill</h2><span>USD, public planning proxy</span></div><div id="cost-monthly-chart" class="chart"></div></article>
+        <article class="card"><div class="card-heading"><h2>Scenario comparison</h2><span>Not realised savings</span></div><div id="cost-scenario-chart" class="chart"></div></article>
+      </div>
+      <div class="grid two">
+        <article class="card"><div class="card-heading"><h2>Monthly estimate table</h2><span>Study energy and load factor</span></div><div id="cost-monthly-table" class="cost-table-wrap"></div></article>
+        <article class="card"><div class="card-heading"><h2>Planning assumptions</h2><span>Public and study-calibrated</span></div><div id="cost-assumptions" class="status-detail"></div></article>
+      </div>
+      <article class="card statement"><h2>Claim boundary</h2><p id="cost-boundary">The estimate does not reproduce the UZ invoice. Financial value must be verified privately against the applicable account tariff, demand register and measured controllable-load response during a pilot.</p></article>
+    </section>
+    <section id="evidence" class="panel">
+      <div class="grid two">
+        <article class="card"><div class="card-heading"><h2>Campus demand heatmap</h2><span>Normalized public-safe aggregate</span></div><div id="heatmap-chart" class="chart tall"></div></article>
+        <article class="card"><div class="card-heading"><h2>Monthly energy index</h2><span>Period mean = 100</span></div><div id="monthly-chart" class="chart tall"></div></article>
+      </div>
+      <div class="grid two">
+        <article class="card"><div class="card-heading"><h2>Weekday vs weekend</h2><span>Normalized profile</span></div><div id="profile-chart" class="chart"></div></article>
+        <article class="card"><div class="card-heading"><h2>Facility energy concentration</h2><span>Public aliases only</span></div><div id="facility-chart" class="chart"></div></article>
+      </div>
+      <article class="card"><div class="card-heading"><h2>Data quality</h2><span>Cleaning policy and exclusions</span></div><div id="quality-grid" class="quality-grid"></div></article>
+    </section>
+    <section id="ai" class="panel">
+      <div class="grid two">
+        <article class="card"><div class="card-heading"><h2>Forecast-assisted vs simple rule</h2><span>Next half-hour warnings</span></div><div id="control-chart" class="chart tall"></div></article>
+        <article class="card"><div class="card-heading"><h2>Trade-off</h2><span>Why AI is justified</span></div><div id="tradeoff" class="tradeoff"></div></article>
+      </div>
+      <article class="card"><div class="card-heading"><h2>Peak-risk confusion matrix</h2><span>Low, medium, high</span></div><div id="confusion-chart" class="chart tall"></div></article>
+    </section>
+    <section id="architecture" class="panel">
+      <div class="grid two">
+        <article class="card diagram-card"><div class="card-heading"><h2>System architecture</h2><span>Integrated hardware-software scope</span></div><img src="/diagrams/system_architecture.svg" alt="System architecture diagram"></article>
+        <article class="card diagram-card"><div class="card-heading"><h2>Private-to-public data flow</h2><span>Evidence without raw data release</span></div><img src="/diagrams/data_flow.svg" alt="Data flow diagram"></article>
+      </div>
+      <article class="card"><h2>Deployment summary</h2><div class="deployment-grid"><div><strong>Meter and edge layer</strong><span>Existing smart meters, optional submeters, validation, and local buffering</span></div><div><strong>UZ institutional server</strong><span>API, dashboard, operational data store, and operator logs</span></div><div><strong>ZCHPC support</strong><span>Model retraining, backup, and recovery where approved</span></div><div><strong>Estates and Facilities</strong><span>Alert review, action confirmation, feedback, and audit</span></div><div><strong>Safety boundary</strong><span>Critical loads excluded, manual override, and no autonomous switching in the MVP</span></div></div></article>
+    </section>
+  </main>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="/static/app.js?v=live-inference-1"></script>
+</body>
+</html>
