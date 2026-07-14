@@ -1,0 +1,51 @@
+{
+  "package_name": "AI4I_EMS_Operational_Live_Repository",
+  "version": "1.3.0-live-inference",
+  "generated_utc": "2026-07-14T10:40:07.636298+00:00",
+  "source_aligned_package": {
+    "filename": "AI4I_EMS_Track3_Submission_Aligned_Repository_READY.zip",
+    "bytes": 2087072,
+    "sha256": "05636442b6e02b456db286dd8eacec0237394bc10a510ab38b8e863a121e0db9"
+  },
+  "validation_environment": {
+    "python": "3.13.5",
+    "platform": "Linux-4.4.0-x86_64-with-glibc2.41"
+  },
+  "validation_summary": {
+    "pytest": "35 passed",
+    "api_smoke_test": "pass",
+    "api_smoke_checks": 17,
+    "javascript_syntax": "pass",
+    "public_demo_model_ready": true,
+    "public_demo_model_test_mae_kva": 3.803359811659416,
+    "private_training_pipeline": "pass",
+    "private_training_facilities": 22,
+    "private_training_test_rows": 30918,
+    "end_to_end_edge_to_ai": "pass",
+    "security_scan": "pass: {'critical': 0, 'high': 0, 'medium': 0, 'low': 0}",
+    "repository_audit": "pass: {'critical': 0, 'high': 0, 'medium': 0, 'low': 0}",
+    "dashboard_screenshots": 7,
+    "repository_files_checked": 186,
+    "package_size_before_zip_bytes": 2626046,
+    "public_demo_model_mae_improvement_percent": 60.72761501869969
+  },
+  "operational_flow": {
+    "edge_ingestion": true,
+    "rolling_feature_generation": true,
+    "loaded_model_inference": true,
+    "next_half_hour_forecast": true,
+    "live_risk_and_recommendation": true,
+    "live_alert_queue": true,
+    "public_fallback_model": "synthetic only",
+    "private_model_precedence": true
+  },
+  "operating_boundary": {
+    "mode": "advisory and operator-confirmed",
+    "autonomous_switching": false,
+    "commissioned_uz_meter_feed_claimed": false,
+    "realised_financial_savings_claimed": false,
+    "private_model_in_public_package": false
+  },
+  "private_workspace": "Supplied as a separate sibling folder in the full delivery ZIP.",
+  "deferred_items_file": "docs/DEFERRED_ITEMS.md"
+}

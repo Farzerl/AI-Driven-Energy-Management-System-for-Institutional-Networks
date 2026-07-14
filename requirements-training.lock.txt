@@ -1,0 +1,2 @@
+# Additional dependency required only for private XLSX dataset training.
+openpyxl==3.1.5

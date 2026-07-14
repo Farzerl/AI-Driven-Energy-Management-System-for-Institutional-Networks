@@ -1,0 +1,241 @@
+AI4I INSTITUTIONAL ENERGY MANAGEMENT SYSTEM
+TEAM SETUP AND RUN INSTRUCTIONS
+
+Repository: Farzerl/ai4i-ai-driven-ems
+Track: AI4I Track 3 Development
+Primary user: University of Zimbabwe Estates and Facilities
+Operating mode: advisory and operator-confirmed
+Private UZ dataset: not included and not required for the public demonstration
+
+======================================================================
+1. ONE-CLICK WINDOWS START
+======================================================================
+
+1. Extract the ZIP completely. Do not run it from inside the compressed folder.
+2. Open the extracted repository folder.
+3. Double-click START_AI4I_EMS.bat.
+4. On the first run, allow the launcher to:
+   - create .venv;
+   - install the pinned dashboard packages;
+   - validate the API import;
+   - start the FastAPI service on port 8000;
+   - start the simulated edge gateway;
+   - wait for the first live next-half-hour forecast;
+   - open the dashboard.
+5. Keep both service windows open:
+   - AI4I EMS API;
+   - AI4I EMS Edge Gateway.
+6. Open the Live forecast tab. It should show the active model, current kVA,
+   next-half-hour forecast, facility limit, utilization, risk and recommendation.
+7. Press Ctrl+C in both service windows to stop the complete demonstration.
+
+Dashboard:
+http://127.0.0.1:8000
+
+FastAPI documentation:
+http://127.0.0.1:8000/docs
+
+START_EDGE_DEMO.bat remains available as a manual fallback. Do not run it when
+the edge gateway window is already active.
+
+======================================================================
+2. WHAT THE ONE-CLICK LAUNCHER STARTS
+======================================================================
+
+The one-click launcher starts this operational path:
+
+simulated half-hour meter values
+→ POST /api/meter-readings
+→ validation and duplicate protection
+→ per-facility rolling history
+→ live feature calculation
+→ active forecasting model
+→ next-half-hour kVA forecast
+→ facility-limit risk classification
+→ advisory recommendation
+→ Live forecast dashboard
+→ Estates and Facilities alert queue
+
+The simulated gateway sends accelerated half-hour intervals. The first forecast
+normally appears after the first four valid readings have been accepted.
+
+The public repository uses the synthetic public demonstration model unless a
+local private model has been installed. The dashboard identifies the active
+model source. Synthetic fallback results demonstrate software operation and are
+not evidence of UZ forecasting accuracy.
+
+======================================================================
+3. SYSTEM REQUIREMENTS
+======================================================================
+
+- Windows 10 or 11, 64-bit
+- Python 3.11, 3.12, or 3.13
+- Internet access on the first installation
+- Approximately 1 GB free disk space
+- Modern browser
+- Local port 8000 available
+
+During Python installation, enable:
+- Add Python to PATH
+- Python launcher
+
+======================================================================
+4. EXPECTED DASHBOARD RESULT
+======================================================================
+
+Overview:
+- verified historical research performance;
+- data quality and benchmark status.
+
+Edge gateway:
+- online state;
+- readings accepted;
+- buffer and retry state;
+- recent simulated meter values.
+
+Live forecast:
+- current facility demand;
+- next-half-hour predicted demand;
+- active model source and mode;
+- facility peak limit;
+- forecast utilization;
+- low, medium or high risk;
+- advisory recommendation;
+- recent forecast records.
+
+Estates and Facilities:
+- live forecast alerts when medium or high risk is generated;
+- confirm, defer, dismiss and mute actions;
+- operator decision audit log.
+
+Cost impact:
+- public-source planning estimate;
+- no confidential bill disclosure;
+- no realised-savings claim.
+
+======================================================================
+5. MANUAL RECOVERY START
+======================================================================
+
+Use this only when the one-click launcher does not start one component.
+
+Start the API manually:
+
+.\.venv\Scripts\python.exe -m uvicorn src.api.server:app --host 127.0.0.1 --port 8000
+
+Start the edge gateway in a second terminal:
+
+START_EDGE_DEMO.bat
+
+Check:
+
+http://127.0.0.1:8000/api/health
+http://127.0.0.1:8000/api/model-status
+http://127.0.0.1:8000/api/live-forecasts
+http://127.0.0.1:8000/api/edge-status
+
+======================================================================
+6. PRIVATE LIVE MODEL TRAINING
+======================================================================
+
+The public package uses a synthetic fallback model so the full workflow can be
+tested safely. To train locally using authorised UZ data:
+
+1. Keep the sibling AI4I_PRIVATE_MODEL_WORKSPACE folder next to this repository.
+2. Place exactly one dataset ZIP in AI4I_PRIVATE_MODEL_WORKSPACE\input.
+3. Run TRAIN_PRIVATE_LIVE_MODEL.bat from the repository.
+4. Restart START_AI4I_EMS.bat after training.
+5. Confirm the Live forecast tab reports source: private_model.
+
+The private workspace, alias map and trained model must not be committed.
+See docs\live_inference\PRIVATE_MODEL_HANDOFF_PLAN.md.
+
+======================================================================
+7. COST MODEL
+======================================================================
+
+To reproduce the public-source cost evidence, run:
+
+RUN_STAGE4_COST_MODEL.bat
+
+The result is a planning estimate. It is not the confidential UZ bill and not
+evidence of realised savings.
+
+======================================================================
+8. FULL DEVELOPMENT AND VALIDATION
+======================================================================
+
+.\.venv\Scripts\python.exe -m pip install -r requirements.lock.txt
+.\.venv\Scripts\python.exe -m pip install -r requirements-dev.lock.txt
+.\.venv\Scripts\python.exe -m pytest -q
+.\.venv\Scripts\python.exe -m scripts.security_scan --output-dir evidence\validation\security
+.\.venv\Scripts\python.exe -m scripts.repository_audit --output-dir evidence\validation\repository
+
+Optional JavaScript syntax check when Node.js is installed:
+
+node --check dashboard\static\app.js
+
+======================================================================
+9. NETWORK INSTALLATION PROBLEMS
+======================================================================
+
+A message such as:
+
+ReadTimeoutError: HTTPSConnectionPool(host='pypi.org'...)
+
+normally means the computer cannot reliably reach the Python package index.
+
+Try:
+- mobile data or another trusted network;
+- checking proxy or firewall rules;
+- increasing the timeout.
+
+PowerShell:
+
+$env:AI4I_PIP_TIMEOUT = "300"
+.\START_AI4I_EMS.bat
+
+Command Prompt:
+
+set AI4I_PIP_TIMEOUT=300
+START_AI4I_EMS.bat
+
+======================================================================
+10. TROUBLESHOOTING
+======================================================================
+
+Dashboard opens but no live forecast:
+- confirm the AI4I EMS Edge Gateway window is open;
+- open the Edge gateway tab and confirm readings are increasing;
+- wait until at least four readings have been accepted;
+- inspect http://127.0.0.1:8000/api/live-forecasts.
+
+Port 8000 unavailable:
+- close another application using port 8000;
+- close old AI4I API windows;
+- run START_AI4I_EMS.bat again.
+
+A second gateway window appears:
+- close all old gateway windows;
+- keep only one process running src.edge.collector;
+- restart the one-click launcher.
+
+API online but model source is public_demo_model:
+- this is correct for the public submission package;
+- train and install the authorised private model only in the controlled local
+  workspace when private deployment evidence is required.
+
+======================================================================
+11. CLAIM BOUNDARY
+======================================================================
+
+The demonstration proves operational software flow from simulated gateway values
+to model inference, next-half-hour forecast, risk classification, recommendation
+and operator workflow.
+
+It does not claim:
+- a commissioned live UZ meter feed;
+- autonomous electrical switching;
+- an actual UZ invoice;
+- realised financial savings;
+- public release of the private UZ model or source workbooks.

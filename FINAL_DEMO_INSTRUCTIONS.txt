@@ -1,0 +1,90 @@
+AI4I-EMS FINAL LOCAL DEMONSTRATION INSTRUCTIONS
+
+Purpose
+-------
+This walkthrough lets a judge or technical reviewer demonstrate the operational
+product without receiving the private University dataset or private trained model.
+
+Preparation
+-----------
+1. Extract the repository completely.
+2. Open AI4I_EMS_Operational_Live_Repository.
+3. Confirm Python 3.11, 3.12, or 3.13 is installed.
+4. Double-click START_AI4I_EMS.bat.
+5. The launcher automatically:
+   - prepares the environment;
+   - starts the API;
+   - starts the simulated edge gateway;
+   - waits for the first live forecast;
+   - opens the dashboard.
+6. Keep the API and Edge Gateway service windows open.
+7. When the launcher reports "Live edge-to-AI forecast: READY", begin the
+   walkthrough.
+
+Walkthrough
+-----------
+1. OVERVIEW
+   - Show 22 facilities and 255,552 completed intervals.
+   - Show the verified research AI forecast MAE of 2.331 kVA.
+   - Explain that April 2026 was held out for the verified benchmark.
+
+2. EDGE GATEWAY
+   - Open the Edge gateway tab.
+   - Show received readings, gateway state, buffer state and recent values.
+   - Explain that accelerated demo time treats each value as a completed
+     half-hour interval.
+   - Explain validation, duplicate rejection, offline buffering and retry.
+
+3. LIVE FORECAST
+   - Open the Live forecast tab.
+   - Show active model source and mode.
+   - Show current kVA, next-half-hour forecast, facility limit and risk.
+   - Show the recent forecast table and advisory recommendation.
+   - Explain that the public package uses a synthetic model fallback. A private
+     locally trained model automatically takes precedence when installed.
+
+4. ESTATES AND FACILITIES
+   - Refresh the alert queue.
+   - When a live medium or high forecast is available, show that the queue uses
+     the live_edge_forecast source.
+   - Demonstrate confirm, defer, dismiss, or mute.
+   - Show that the decision appears in the audit log.
+
+5. COST IMPACT
+   - Show the indicative eight-month estimate of about USD 604,000.
+   - Show the central planning scenario of about USD 14,000.
+   - State clearly that neither value is an actual invoice or realised saving.
+
+6. DATA EVIDENCE
+   - Show the normalized heatmap, monthly index, weekday/weekend profile,
+     facility concentration and data-quality exclusions.
+
+7. AI VERSUS RULE
+   - Show forecast-assisted versus simple threshold control.
+   - Explain 161 fewer high-risk events missed as low.
+   - Explain the additional alert burden and human-confirmed operating mode.
+
+8. ARCHITECTURE
+   - Show meters, edge gateway, live features, AI, API, dashboard, human
+     decision and future supervised-control boundary.
+
+9. API
+   - Open http://127.0.0.1:8000/docs
+   - Show health, model status, live forecasts, live alerts, edge, meter,
+     evidence, cost and operator-decision endpoints.
+
+Stopping
+--------
+Press Ctrl+C in both service windows:
+- AI4I EMS API;
+- AI4I EMS Edge Gateway.
+
+Closing statement
+-----------------
+The current public MVP proves data processing, a verified historical benchmark,
+operational simulated edge-to-AI inference, next-half-hour advisory forecasts,
+operator workflow, offline buffering, public-safe evidence and a planning cost
+model. It does not claim a commissioned campus feed, automatic switching, actual
+billing data or realised financial savings.
+
+No audio recording is required for this local walkthrough.
