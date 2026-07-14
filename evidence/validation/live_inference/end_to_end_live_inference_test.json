@@ -1,0 +1,38 @@
+{
+  "status": "pass",
+  "test_mode": "FastAPI integration with four simulated completed half-hour values",
+  "model_ready": true,
+  "model_source": "public_demo_model",
+  "readings_received": 4,
+  "forecasts_generated": 1,
+  "latest_forecast": {
+    "forecast_id": "7d408bc1c0a11929b45f4443",
+    "reading_id": "9ac5db79b0be0188f84cbe15",
+    "facility_id": "F17",
+    "reading_timestamp": "2026-07-14T10:30:00+02:00",
+    "forecast_timestamp": "2026-07-14T11:00:00+02:00",
+    "current_kva": 519.4,
+    "raw_model_forecast_kva": 38.841,
+    "forecast_kva": 528.2,
+    "inference_method": "guarded_persistence_trend",
+    "risk_basis_kva": 528.2,
+    "facility_limit_kva": 545.37,
+    "limit_source": "adaptive_demo_guard",
+    "utilization_percent": 96.85,
+    "peak_risk": "high",
+    "tariff_period": "standard",
+    "recommended_action": "Prepare supervised load coordination and verify the facility operating schedule.",
+    "model_mode": "public_synthetic_demo",
+    "operating_mode": "advisory",
+    "generated_utc": "2026-07-14T10:33:39.130669+00:00"
+  },
+  "alert_mode": "live_edge_forecast",
+  "alert_count": 1,
+  "checks": {
+    "forecast_generated_after_four_intervals": true,
+    "advisory_only": true,
+    "out_of_distribution_guard_applied": true,
+    "adaptive_demo_limit_used": true,
+    "live_alert_replaced_fallback": true
+  }
+}

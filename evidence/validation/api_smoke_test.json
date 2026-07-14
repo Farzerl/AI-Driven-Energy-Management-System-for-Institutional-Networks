@@ -1,0 +1,114 @@
+{
+  "generated_utc": "2026-07-14T10:35:30.600809+00:00",
+  "status": "pass",
+  "checks": [
+    {
+      "method": "GET",
+      "path": "/api/health",
+      "status_code": 200,
+      "pass": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/summary",
+      "status_code": 200,
+      "pass": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence",
+      "status_code": 200,
+      "pass": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/control-comparison",
+      "status_code": 200,
+      "pass": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/cost-impact",
+      "status_code": 200,
+      "pass": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/model-status",
+      "status_code": 200,
+      "pass": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/live-forecasts",
+      "status_code": 200,
+      "pass": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/live-alerts",
+      "status_code": 200,
+      "pass": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/edge-status",
+      "status_code": 200,
+      "pass": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/meter-readings",
+      "status_code": 200,
+      "pass": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/alerts",
+      "status_code": 200,
+      "pass": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/operator-decisions",
+      "status_code": 200,
+      "pass": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/meter-readings",
+      "status_code": 200,
+      "pass": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/live-forecasts",
+      "status_code": 200,
+      "pass": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/alerts",
+      "status_code": 200,
+      "pass": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/operator-decisions",
+      "status_code": 200,
+      "pass": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/operator-decisions",
+      "status_code": 200,
+      "pass": true
+    }
+  ],
+  "live_inference": {
+    "readings_accepted": 4,
+    "forecast_count": 1,
+    "alert_mode": "live_edge_forecast",
+    "model_source": "public_demo_model"
+  }
+}

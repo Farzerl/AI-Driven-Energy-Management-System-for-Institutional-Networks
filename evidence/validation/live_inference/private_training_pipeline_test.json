@@ -1,0 +1,29 @@
+{
+  "status": "pass",
+  "test_type": "private dataset training pipeline validation",
+  "privacy": "Raw files, real facility names, alias mapping and trained private model are excluded from the public repository.",
+  "facility_count": 22,
+  "usable_rows": 246843,
+  "training_rows": 215925,
+  "test_rows": 30918,
+  "training_period": {
+    "start": "2025-08-31T23:30:00+00:00",
+    "end": "2026-03-31T23:30:00+00:00"
+  },
+  "untouched_test_period": {
+    "start": "2026-04-01T00:00:00+00:00",
+    "end": "2026-04-30T21:00:00+00:00"
+  },
+  "deployment_model_family": "Scheduled autoregressive ridge blended with persistence",
+  "validation_selected_persistence_blend_alpha": 0.4,
+  "deployment_model_metrics": {
+    "model_mae_kva": 2.670538693296814,
+    "model_rmse_kva": 7.156904928937267,
+    "model_mape_percent_over_1kva": 10.54084144582058,
+    "persistence_mae_kva": 2.7435361278219808,
+    "persistence_rmse_kva": 7.548867823129995,
+    "mae_improvement_percent": 2.660706151630583
+  },
+  "important_distinction": "This live-compatible deployment model is separate from the stronger verified research benchmark reported in evidence/public_dashboard/dashboard_evidence.json.",
+  "model_artifact_in_public_repository": false
+}

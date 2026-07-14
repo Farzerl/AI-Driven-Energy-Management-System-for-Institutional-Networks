@@ -1,0 +1,1 @@
+PASS: node --check dashboard/static/app.js

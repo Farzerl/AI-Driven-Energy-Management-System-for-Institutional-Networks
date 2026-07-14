@@ -1,0 +1,9 @@
+{
+  "status": "pass",
+  "summary_matches": true,
+  "monthly_csv_matches": true,
+  "scenario_csv_matches": true,
+  "estimated_baseline_bill_usd": 603536.75,
+  "central_scenario_saving_usd": 14170.36,
+  "claim_boundary": "Planning estimate only. It does not reproduce or disclose the UZ utility bill. Savings require validation against the applicable account tariff, meter demand register and measured controllable-load response during a pilot."
+}

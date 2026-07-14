@@ -1,0 +1,57 @@
+{
+  "generated_utc": "2026-07-14T09:37:10.624956+00:00",
+  "status": "pass",
+  "screenshot_count": 7,
+  "screenshots": [
+    {
+      "file": "docs/screenshots/01_overview.png",
+      "width": 1440,
+      "height": 1000,
+      "bytes": 124712,
+      "sha256": "609996524cbb26bb1ca28d05578d8153b944e7b04ab8fd9938804ca25fd75511"
+    },
+    {
+      "file": "docs/screenshots/02_estates_and_facilities.png",
+      "width": 1440,
+      "height": 1181,
+      "bytes": 222792,
+      "sha256": "685b4cfb22961d9add0bcea8486597387dfdbfd3cdb9a5c157b47f30aedf417b"
+    },
+    {
+      "file": "docs/screenshots/03_edge_gateway.png",
+      "width": 1440,
+      "height": 1000,
+      "bytes": 138365,
+      "sha256": "5fe487adeee7f207240ec8da4afc255691b73916eabd1514b664f808d383211b"
+    },
+    {
+      "file": "docs/screenshots/04_cost_impact.png",
+      "width": 1440,
+      "height": 1439,
+      "bytes": 219002,
+      "sha256": "e17ddf1ef89f6b27a2867ffb8876590a9db183c17cc51dbc023ea368ce5618fd"
+    },
+    {
+      "file": "docs/screenshots/05_data_evidence.png",
+      "width": 1440,
+      "height": 1332,
+      "bytes": 131074,
+      "sha256": "2bf06e9a9b3ee424b8e81b6761fbdb39a2e346b10b5daf74a8c52f83b9d8b561"
+    },
+    {
+      "file": "docs/screenshots/06_ai_vs_rule.png",
+      "width": 1440,
+      "height": 1290,
+      "bytes": 102089,
+      "sha256": "a5511a0ab1e73236ccb779e83e43765a4a4c6f3590b8f11ebf0a9526a3894daa"
+    },
+    {
+      "file": "docs/screenshots/07_architecture.png",
+      "width": 1440,
+      "height": 1000,
+      "bytes": 161572,
+      "sha256": "06e578405b9ab9e28a2d9d7145c510f63b71052f5410db910ef7fbfd35dff1ad"
+    }
+  ],
+  "boundary": "Public-safe local build; not a live commissioned UZ installation."
+}

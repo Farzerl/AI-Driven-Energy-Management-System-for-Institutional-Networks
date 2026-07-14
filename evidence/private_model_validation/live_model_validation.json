@@ -1,0 +1,51 @@
+{
+  "bundle_schema_version": 4,
+  "model_family": "Scheduled autoregressive ridge blended with persistence",
+  "model_mode": "private_uz_chronological",
+  "trained_utc": "2026-07-14T11:03:01.356775+00:00",
+  "prediction_horizon_minutes": 30,
+  "minimum_history_intervals": 4,
+  "feature_columns": [
+    "facility_id",
+    "hour",
+    "minute",
+    "dayofweek",
+    "month",
+    "is_weekend",
+    "is_peak",
+    "is_offpeak",
+    "target_dayofweek",
+    "target_slot",
+    "kva",
+    "kwh",
+    "power_factor",
+    "kva_lag_1",
+    "kva_lag_2",
+    "kva_rolling_mean_4",
+    "kva_rolling_max_4"
+  ],
+  "facility_count": 22,
+  "usable_rows": 246843,
+  "training_rows": 215925,
+  "test_rows": 30918,
+  "training_start": "2025-08-31T23:30:00+00:00",
+  "training_end": "2026-03-31T23:30:00+00:00",
+  "test_start": "2026-04-01T00:00:00+00:00",
+  "test_end": "2026-04-30T21:00:00+00:00",
+  "dataset_fingerprint": "d7c07de227b38ae00d9b3a425a41d3560d9c40f5acca991c0c33a58f4bfe6178",
+  "persistence_blend_alpha": 0.4,
+  "validation": {
+    "validation_rows": 32925.0,
+    "validation_mae_kva": 2.6096078998605328,
+    "validation_persistence_mae_kva": 2.712793621867882
+  },
+  "metrics": {
+    "model_mae_kva": 2.6705386932967676,
+    "model_rmse_kva": 7.156904928937263,
+    "model_mape_percent_over_1kva": 10.54084144582006,
+    "persistence_mae_kva": 2.7435361278219808,
+    "persistence_rmse_kva": 7.548867823129995,
+    "mae_improvement_percent": 2.6607061516322665
+  },
+  "claim_boundary": "This deployment model predicts the next completed half-hour interval. The verified research benchmark remains documented separately. Risk and recommendations remain advisory."
+}

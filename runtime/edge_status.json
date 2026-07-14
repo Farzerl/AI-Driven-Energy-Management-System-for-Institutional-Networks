@@ -1,0 +1,12 @@
+{
+  "gateway_id": "pi-edge-demo-01",
+  "facility_id": "F17",
+  "mode": "csv_simulator",
+  "state": "buffering",
+  "buffered_readings": 6964,
+  "sent_readings": 611,
+  "failed_batches": 1757,
+  "last_attempt_utc": "2026-07-14T15:13:47.559839Z",
+  "last_success_utc": "2026-07-14T13:04:36.109701Z",
+  "last_error": "HTTP Error 422: Unprocessable Entity"
+}
